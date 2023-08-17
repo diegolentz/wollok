@@ -22,7 +22,7 @@ object otro {
     var cant = 0
 
     method venderEmpanadas(cuantas) {
-        cant ++
+        cant += cuantas
         if (cant <= max) {
             cantidadEmpanadasVendidas = cantidadEmpanadasVendidas + cuantas
         }
