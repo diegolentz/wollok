@@ -1,0 +1,40 @@
+import wollok.game.*
+import extras.*
+import pepita.*
+
+describe "Tests de Silvestre" {
+
+	method initialize(){
+		game.clear()
+	}
+
+test "Si pepita..."{
+	assert.equals(1,1)
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//	test "Si pepita esta en el origen Silvestre queda en la posicion minima" {
+//		pepita.position(game.origin())
+//		assert.equals(game.at(3,0), silvestre.position())
+//	}
+//	
+//	test "Si pepita esta pasando el minimo, Silvestre esta debajo" {
+//		pepita.position(game.at(5, 5))
+//		assert.equals(game.at(5,0), silvestre.position())
+//	}
