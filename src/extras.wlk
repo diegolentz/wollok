@@ -8,7 +8,8 @@ object nido {
 	method image() = "nido.png"
 
 	method teEncontro(ave) {
-		game.schedule(2000, { game.stop() })
+		game.say(ave, "gane")
+		game.onTick(2000,"fin del juego",{game.stop()})
 	}
 }
 

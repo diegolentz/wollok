@@ -26,15 +26,16 @@ object pepita {
 	}
 
 	method irA(nuevaPosicion) {
+// gravedad revisar  game.onTick(1500,"gravedad",{self.gravedad()})
 	    if (not self.nodama()) {
 	        self.vola(position.distance(nuevaPosicion))
 	        position = nuevaPosicion
+        
 	    } else {
 	        game.say(self, "no doy más")
 	       	 game.onTick(10000,"fin del juego",{game.stop()}) 
 	    }
 	    
-	    game.onTick(8000,"gravedad",{self.gravedad()})
 	}
 
 	method estaEnElNido() {

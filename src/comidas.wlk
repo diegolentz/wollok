@@ -8,7 +8,7 @@ object manzana {
 
 	method energiaQueOtorga() = 40
 	
-	method encontro(ave){
+	method teEncontro(ave){
 		game.say(ave,"atroden!")
 		
 	}
@@ -24,7 +24,7 @@ object alpiste {
 	method energiaQueOtorga() = 70
 	
 	
-	method encontro(ave){
+	method teEncontro(ave){
 		game.say(ave,"si era churrito me lo arrancaba!")
 		
 	}

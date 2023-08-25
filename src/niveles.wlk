@@ -52,7 +52,16 @@ object config {
 		keyboard.c().onPressDo({pepita.come(game.uniqueCollider(pepita))})
 	}
 	
+
 	method configurarColisiones() {
-		game.onCollideDo(pepita, { algo => algo.teEncontro(pepita) })
+		game.onCollideDo(pepita, { algo => algo.teEncontro(pepita)
+			if (algo == alpiste){
+				
+			}
+		})
+	}
+	
+	method configurarMovimientos(){
+		game.onTick(1500, "gravedad", {pepita.gravedad()})
 	}
 }
