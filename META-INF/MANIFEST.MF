@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: El_juego_de_Pepita
+Automatic-Module-Name: casaDePepeYJulian
 Bundle-ManifestVersion: 2
-Bundle-Name: El_juego_de_Pepita
+Bundle-Name: casaDePepeYJulian
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: El_juego_de_Pepita; singleton:=true
+Bundle-SymbolicName: casaDePepeYJulian; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.ibm.icu,
  org.eclipse.xtext,

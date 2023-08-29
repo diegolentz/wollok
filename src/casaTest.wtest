@@ -1,0 +1,22 @@
+import casa.*
+
+// EXPRESIVIDAD: Elegir buenos nombres, que se entienda su intención
+test "Depositar en una cuenta con gastos" {
+	// Preparo el test
+	cuentaConGastos.costoDeOperacion(20)
+	// Acción
+	cuentaConGastos.depositar(1000)
+	// Varificación
+	assert.equals(980, cuentaConGastos.saldo())
+}
+
+test "La casa hace un gasto sobre la cuenta con gastos" {
+	cuentaConGastos.costoDeOperacion(500)
+	cuentaConGastos.depositar(5000)
+	assert.equals(4500, cuentaConGastos.saldo())
+	
+	casa.usarCuenta(cuentaConGastos)
+	casa.gastar(1000)
+	
+	assert.equals(3500, cuentaConGastos.saldo())
+}
