@@ -1,0 +1,16 @@
+import empleados.*
+
+test "Qué hacen los empleados con lo que cobran" {
+	
+  baigorria.vender(500)
+  galvan.sueldo(20000)
+  baigorria.vender(300)
+  gimenez.pagarSueldo(baigorria)
+  gimenez.pagarSueldo(galvan)
+  
+  baigorria.vender(100)
+  gimenez.pagarSueldo(baigorria)
+  assert.equals(13500, baigorria.totalCobrado())
+  
+ 	
+}

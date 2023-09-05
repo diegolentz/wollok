@@ -1,0 +1,28 @@
+import empleados.*
+
+test "punto1: Finanzas de  galvan" {
+
+   assert.equals(0, galvan.deuda()) 	
+   assert.equals(0, galvan.dinero()) 	
+   assert.equals(15000, galvan.sueldo()) 	
+
+   galvan.gastar(4000)
+   assert.equals(4000, galvan.deuda()) 	
+   assert.equals(0, galvan.dinero()) 	
+   
+   galvan.gastar(8000)
+   assert.equals(12000, galvan.deuda()) 	
+   assert.equals(0, galvan.dinero()) 	
+
+   gimenez.pagarSueldo(galvan)   
+   assert.equals(0, galvan.deuda()) 	
+   assert.equals(3000, galvan.dinero()) 	
+
+   galvan.gastar(25000)
+   assert.equals(22000, galvan.deuda()) 	
+   assert.equals(0, galvan.dinero()) 	
+
+   gimenez.pagarSueldo(galvan)   
+   assert.equals(7000, galvan.deuda()) 	
+   assert.equals(0, galvan.dinero()) 	
+}

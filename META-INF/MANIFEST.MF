@@ -1,10 +1,9 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: casaDePepeYJulian
 Bundle-ManifestVersion: 2
-Bundle-Name: casaDePepeYJulian
+Bundle-Name: empanadasGimenez
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: casaDePepeYJulian; singleton:=true
+Bundle-SymbolicName: empanadasGimenez; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.ibm.icu,
  org.eclipse.xtext,
