@@ -1,0 +1,39 @@
+import rolando.*
+import armas.*
+
+test "ejemplo de batalla"{
+	rolando.poderBase(5)
+	rolando.capacidad(3)
+	
+	rolando.recolectar(espada)
+	rolando.recolectar(armadura)
+	rolando.recolectar(collar)
+	
+	rolando.batalla()
+	
+	assert.equals(6,rolando.poderBase())
+	assert.equals(3,espada.poderBrinda(rolando))
+	assert.equals(6,armadura.poderBrinda(rolando))
+	assert.equals(3,collar.poderBrinda(rolando))
+
+// segunda batalla
+	rolando.batalla()
+	
+	assert.equals(7,rolando.poderBase())
+	assert.equals(3.5,espada.poderBrinda(rolando))
+	assert.equals(6,armadura.poderBrinda(rolando))
+	assert.equals(5,collar.poderBrinda(rolando))
+}
+
+test "peleas"{
+	rolando.poderBase(5)
+	rolando.capacidad(3)
+	
+	rolando.recolectar(espada)
+	rolando.recolectar(armadura)
+	rolando.recolectar(collar)
+	
+	assert.equals(19,rolando.poderDePelea())
+	
+}
+

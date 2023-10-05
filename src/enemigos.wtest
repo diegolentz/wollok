@@ -1,0 +1,78 @@
+import rolando.*
+import armas.*
+import moradas.*
+import erethia.*
+
+
+
+test "poder y morada enemigos"{
+	assert.equals(16,archibaldo.poderBase())
+	assert.equals(28,caterina.poderBase())
+	assert.equals(14,astra.poderBase())
+	
+	assert.equals(palacioMarmol,archibaldo.morada())
+	assert.equals(fortalezaAcero,caterina.morada())
+	assert.equals(torreMarfil,astra.morada())
+}
+
+
+
+test "enemigos vencibles y moradas conquistables" {
+	rolando.poderBase(5)
+	rolando.capacidad(3)
+	rolando.recolectar(espada)
+	rolando.recolectar(armadura)
+	rolando.recolectar(collar)
+	
+	assert.equals(19,rolando.poderDePelea())
+	
+	
+	assert.that(rolando.puedeVencer(archibaldo))
+	
+	assert.that(rolando.puedeVencer(astra))
+	
+	// caterina se rompe, porqe no puede vencerla
+	assert.notThat(rolando.puedeVencer(caterina))
+
+	assert.equals(palacioMarmol,rolando.puedeConquistar(archibaldo))
+	assert.equals(torreMarfil,rolando.puedeConquistar(astra))
+	
+	// caterina se rompe, porqe no puede vencerla
+	assert.notEquals(fortalezaAcero,rolando.puedeConquistar(caterina))
+	
+}
+
+test "poderoso" {
+
+	rolando.capacidad(3)
+	rolando.recolectar(espada)
+	rolando.recolectar(armadura)
+	rolando.recolectar(collar)
+	
+	assert.notThat(rolando.espoderoso())
+	rolando.poderBase(10)
+	assert.that(rolando.espoderoso())
+}
+
+test "artefacto fatal" {
+	
+	/*creo que esta mal redactado porque si el poder base es 15, la espada le otorgaria +15 
+	 * dando 30, teniendo poder suficiente para ser letal a todos los villanos
+	 */
+	 
+	rolando.poderBase(15)
+	rolando.capacidad(3)
+	rolando.recolectar(espada)
+	rolando.recolectar(armadura)
+	rolando.recolectar(collar)
+	
+	assert.that(rolando.tieneArtefactoFatal(astra))
+	assert.that(rolando.esFatal(espada,astra))
+	
+	assert.that(rolando.tieneArtefactoFatal(archibaldo))
+	assert.that(rolando.esFatal(espada,archibaldo))
+	
+	assert.that(rolando.tieneArtefactoFatal(caterina))
+	assert.that(rolando.esFatal(espada,caterina))
+}
+ 
