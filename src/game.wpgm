@@ -1,0 +1,18 @@
+import wollok.game.*
+import hector.*
+import cultivos.*
+import config.*
+
+program farmville {
+	//  CONFIG	
+	game.title("FarmVille")
+	game.height(15)
+	game.width(15)
+	game.ground("ground.png")
+
+	//  VISUALES
+	config.iniciar()
+ 	
+ 	//  COMIENZA
+	game.start()
+}
