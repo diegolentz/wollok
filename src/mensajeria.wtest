@@ -1,0 +1,136 @@
+import mensajeria.*
+import paquete.*
+import mensajeros.*
+/*
+test "Test de contratar" {
+	mensajeria.contratar(roberto)
+	mensajeria.contratar(chukNorris)
+	mensajeria.contratar(neo)
+	
+	assert.that(mensajeria.mensajeros().size() == 3)
+}
+test "Test de despido" {
+	mensajeria.despedir(roberto)
+	
+	assert.notThat(mensajeria.mensajeros().contains(roberto))
+}
+test "despido masivo" {
+	mensajeria.despedirTodos()
+	
+	assert.equals(0,mensajeria.mensajeros().size())
+}
+test "la mensajeria es grande" {
+	mensajeria.contratar(roberto)
+	mensajeria.contratar(chukNorris)
+	mensajeria.contratar(neo)
+	
+	
+	assert.that(mensajeria.esGrande())
+}
+test "el primero puede llevarlo" {
+	mensajeria.contratar(neo)
+	mensajeria.contratar(roberto)
+	mensajeria.contratar(chukNorris)
+	
+	paquete.pagar()
+	
+		
+	
+	assert.that(mensajeria.entregaPrimero())
+}
+test "peso del ultimo mensajero" {
+	mensajeria.contratar(neo)
+	mensajeria.contratar(roberto)
+	mensajeria.contratar(chukNorris)
+	
+	
+	assert.equals(chukNorris.peso(), mensajeria.pesoUltimo())
+}
+ */
+
+test "Averiguar si un paquete puede ser entregado por la empresa de mensajería, 
+		es decir, si al menos uno de sus mensajeros puede entregar el paquete." {
+			
+	mensajeria.contratar(neo)
+	mensajeria.contratar(roberto)
+	mensajeria.contratar(chukNorris)
+	
+	
+	assert.that(mensajeria.algunoEntrega(paquetito))
+	assert.notThat(mensajeria.algunoEntrega(paqueton))	
+}
+
+
+test "Obtener todos los mensajeros que pueden llevar un paquete dado."{
+	
+	mensajeria.contratar(neo)
+	mensajeria.contratar(roberto)
+	mensajeria.contratar(chukNorris)
+	
+	//paquetito pasan todos, esta pago y puede ser entregado por todos
+	assert.equals(3,mensajeria.quienEntrega(paquetito).size())
+	
+	
+	// solo pasa chuck
+	paqueton.pagar(3000) // se paga el paqueton
+	// roberto no tiene credito y neo tampoco
+	assert.equals(1,mensajeria.quienEntrega(paqueton).size())
+	neo.recarga()//cargo el cel de neo y pasan 2
+	assert.equals(2,mensajeria.quienEntrega(paqueton).size())
+	
+}
+
+test "Saber si una mensajería tiene sobrepeso. Esto sucede si el promedio del peso de los mensajeros es superior a 500 Kg."{
+	
+	mensajeria.contratar(neo) // no pesa
+	mensajeria.contratar(roberto) // 90 * 2 acoplados
+	mensajeria.contratar(chukNorris) // 900
+	
+	assert.that(mensajeria.sobrePeso())
+}
+
+test "Hacer que la empresa de mensajería envíe un paquete. Para ello elige cualquier mensajero entre los que pueden enviarlo 
+		y si no puede lo agrega a los paquetes pendientes. (leer también punto siguiente)"{
+			
+	mensajeria.envio(paquetito)
+	assert.equals(1,mensajeria.enviados().size())
+	
+	mensajeria.envio(paqueton)
+	assert.equals(2,mensajeria.enviados().size())	
+}
+test "Conocer la facturación de la empresa, que es el total ganado por los paquetes enviados."{
+	mensajeria.envio(paqueton)
+	mensajeria.envio(paqueton)
+	mensajeria.envio(paquetito)// paquetito no tiene valor
+	assert.equals(500,mensajeria.facturado())
+}
+test "Dado un conjunto de paquetes, enviarlos a todos."{
+	
+	mensajeria.varios(paquetito)
+	mensajeria.varios(paquetito)
+	mensajeria.varios(paquetito)
+	mensajeria.varios(paquetito)
+	mensajeria.varios(paquetito)
+	mensajeria.varios(paquetito)
+	
+	mensajeria.enviarVarios()
+	
+	assert.equals(6,mensajeria.enviados().size())
+	
+}
+	
+test "Encontrar el paquete pendiente más caro y enviarlo, actualizando los pendientes en caso de haberlo podido enviar."{
+	
+	mensajeria.pendientes(paquetito)
+	mensajeria.pendientes(paqueton)
+	
+	mensajeria.enviarMasCaroPendiente()
+	
+	assert.that(mensajeria.pendientes().contains(paquetito))
+	assert.equals(1,mensajeria.pendientes().size())		
+	assert.that(mensajeria.enviados().contains(paqueton))	
+		
+}
+
+
+

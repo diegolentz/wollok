@@ -1,0 +1,16 @@
+import mensajeros.*
+import destinos.*
+import transporte.*
+import paquete.*
+
+test "roberto que pesa 90  lleva paquete pago en camion 1 acoplado" {
+	camion.acoplados(1)
+	paquete.pagar()
+	assert.that(paquete.puedeSerEntregadoPor(roberto))
+}
+
+test "Que neo con crédito no puede llevar un paquete que no está pago a la matrix." {
+	neo.recarga()
+	paquete.destino(matrix)
+	assert.notThat(paquete.puedeSerEntregadoPor(neo))
+}
