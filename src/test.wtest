@@ -1,0 +1,15 @@
+import golosinas.*
+import mariano.*
+test "baniar golosina" {
+
+	var chupetin = new Chupetin()
+	var bombon = new Bombon()
+	mariano.comprar(chupetin)
+	mariano.comprar(bombon)
+	
+	
+	mariano.baniar(chupetin)
+    mariano.baniar(bombon)
+    
+    assert.equals(2, mariano.golosinas().size())
+}
